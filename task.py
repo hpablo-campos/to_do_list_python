@@ -10,15 +10,25 @@ class Task:
         self.status = status
 
     def __repr__(self):
-
-        return f'Tarefa(titulo = {self.titulo}, descricao = {self.descricao},'\
-               f'data_vencimento = {self.data_vencimento.strftime('%d/%m/%Y')}, status = {self.status})'     
+        return (
+            f"Tarefa(titulo = {self.titulo}, descricao = {self.descricao}, "
+            f"data_vencimento = {self.data_vencimento.strftime('%d/%m/%Y')}, status = {self.status})"
+        )
 
     def marcar_concluida(self):
         self.status = 'Concluída'
 
     def esta_atrasada(self):
         return datetime.now() > self.data_vencimento and self.status == 'Pendente'
+
+    def edit_titulo(self, novo_titulo):
+        self.titulo = novo_titulo
+
+    def edit_descricao(self, nova_descricao):
+        self.descricao = nova_descricao
+
+    def edit_data_venc(self, nova_data_venc):
+        self.data_vencimento = nova_data_venc
 
     def detalhes(self):
         status = 'Atrasada' if self.esta_atrasada() else self.status
