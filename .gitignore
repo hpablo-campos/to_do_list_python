@@ -24,3 +24,5 @@ build/
 
 # Mac
 .DS_Store
+
+*.pkl
