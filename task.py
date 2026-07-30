@@ -19,7 +19,7 @@ class Task:
         self.status = 'Concluída'
 
     def esta_atrasada(self):
-        return datetime.now() > self.data_vencimento and self.status == 'Pendente'
+        return datetime.now().date() > self.data_vencimento.date() and self.status == 'Pendente'
 
     def edit_titulo(self, novo_titulo):
         self.titulo = novo_titulo
@@ -28,7 +28,7 @@ class Task:
         self.descricao = nova_descricao
 
     def edit_data_venc(self, nova_data_venc):
-        self.data_vencimento = nova_data_venc
+        self.data_vencimento = datetime.strptime(nova_data_venc, "%d/%m/%Y")
 
     def detalhes(self):
         status = 'Atrasada' if self.esta_atrasada() else self.status
