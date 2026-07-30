@@ -1,10 +1,11 @@
-from task import Task
-from persistency import salvar_tarefas, carregar_tarefas
+from controller import Controller
 
-task1 = Task('Estudar Python', 'Estudar libs padrão do Python', '26/07/2026')
-print(task1)
+gerenciador = Controller()
 
-salvar_tarefas([task1])
-tasks = carregar_tarefas()
+# gerenciador.add_tarefa("Estudar pickle", "a biblioteca pickle salva objetos em python", "30/07/1994")
 
-print(tasks[0].detalhes())
+# gerenciador.editar_tarefa(0, descricao="Nova data atribuída", data_vencimento="01/08/2026")
+
+# gerenciador.remover_tarefa(2)
+# gerenciador.remover_tarefa(1)
+gerenciador.listar_tarefas()
