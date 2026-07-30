@@ -17,5 +17,5 @@ def carregar_tarefas(nome_arquivo='tarefas.pkl'):
         return []
 
     except EOFError:
-        print(f"-> O arquivo '{nome_arquivo}'' está vazio. Nenhuma tarefa foi carregada!\n")
+        print(f"-> O arquivo '{nome_arquivo}' está vazio. Nenhuma tarefa foi carregada!\n")
         return []

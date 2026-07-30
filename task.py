@@ -35,5 +35,5 @@ class Task:
         return  (f'Título: {self.titulo}\n'
                  f'Descrição: {self.descricao}\n'
                  f'Status: {status}\n'
-                 f'Data de Vencimento: {self.data_vencimento.strftime('%d/%m/%Y')}\n'
+                 f'Data de Vencimento: {self.data_vencimento.strftime("%d/%m/%Y")}\n'
                  )

@@ -1,4 +1,26 @@
-.directory
+# Byte-compiled / cache
 __pycache__/
-*.pkl
-main.py
+*.py[cod]
+
+# Pytest cache
+.pytest_cache/
+
+# Virtual environments
+.todolist_env/
+venv/
+env/
+.venv/
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Environment files
+.env
+
+# Editor directories
+.vscode/
+
+# Mac
+.DS_Store
