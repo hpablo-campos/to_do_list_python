@@ -1,13 +1,22 @@
 # 📝 CLI Task Manager (Gerenciador de Tarefas via Terminal)
 
-Um gerenciador de tarefas simples, eficiente e modular em linha de comando (CLI), desenvolvido em Python. O sistema permite criar, listar, editar, concluir e remover tarefas com suporte a persistência local de dados e verificação automática de tarefas atrasadas.
+Um gerenciador de tarefas simples, eficiente e modular em linha de comando (CLI), desenvolvido em Python. O sistema permite criar, listar, editar, concluir e remover tarefas com suporte a persistência local de dados, verificação automática de tarefas atrasadas e interface visual estilizada com a biblioteca **Rich**.
+
+---
+
+## 🛠️ Tecnologias e Ferramentas
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Rich](https://img.shields.io/badge/Rich-00599C?style=for-the-badge&logo=python&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
 ---
 
 ## 🚀 Funcionalidades
 
 - ➕ **Adicionar Tarefas:** Criação de tarefas com título, descrição e data de vencimento.
-- 📋 **Listar Tarefas:** Visualização de todas as tarefas cadastradas com filtragem opcional por status (`Pendente` / `Concluída`).
+- 📋 **Listar Tarefas:** Visualização de todas as tarefas cadastradas com formatação colorida (Rich) e filtragem opcional por status (`Pendente` / `Concluída`).
 - ⏰ **Detecção de Atraso:** Identificação e exibição automática do status `Atrasada` caso a data atual ultrapasse a data de vencimento.
 - ✏️ **Editar Tarefas:** Atualização flexível de título, descrição e/ou data de vencimento.
 - ✅ **Concluir Tarefas:** Alteração de status de tarefas pendentes para concluídas.
@@ -25,7 +34,7 @@ O projeto adota uma arquitetura modular orientada a objetos (MVC simplificado):
 ├── task.py          # Classe Task (modelo de dados e regras de negócio)
 ├── persistency.py   # Funções de leitura/escrita em arquivo (pickle)
 ├── controller.py    # Classe Controller (gerenciamento e fluxo de dados)
-└── main.py          # Interface CLI principal (parser de argumentos com argparse)
+└── main.py          # Interface CLI principal (parser de argumentos com argparse e formatação com Rich)
 ```
 
 ---
@@ -33,7 +42,17 @@ O projeto adota uma arquitetura modular orientada a objetos (MVC simplificado):
 ## 🛠️ Pré-requisitos
 
 - **Python 3.7+** instalado na sua máquina.
-- Nenhuma biblioteca externa é necessária (utiliza apenas a biblioteca padrão do Python).
+- **Rich:** Biblioteca externa para estilização e formatação visual do terminal.
+
+### 📦 Instalação da dependência
+
+Você pode instalar a biblioteca `rich` no seu ambiente virtual com:
+
+```bash
+pip install rich
+```
+
+*(Ou via arquivo de dependências `pip install -r requirements.txt`, caso possua)*.
 
 ---
 
@@ -45,7 +64,7 @@ O projeto adota uma arquitetura modular orientada a objetos (MVC simplificado):
    cd gerenciador-de-tarefas-cli
    ```
 
-2. **Execute os comandos através do `main.py`:**
+2. **Ative seu ambiente virtual (opcional, mas recomendado) e execute:**
    ```bash
    python main.py --help
    ```
@@ -104,20 +123,6 @@ Sintaxe: `python main.py remover <indice_da_tarefa>`
 
 ```bash
 python main.py remover 1
-```
-
----
-
-## 📊 Exemplo de Saída no Terminal
-
-```text
-TAREFA 1:
-Título: Estudar Python
-Descrição: Revisar POO e Argparse
-Status: Pendente
-Data de Vencimento: 15/08/2026
-
-Fim da lista de tarefas.
 ```
 
 ---
