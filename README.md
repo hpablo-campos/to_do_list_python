@@ -34,7 +34,8 @@ O projeto adota uma arquitetura modular orientada a objetos (MVC simplificado):
 ├── task.py          # Classe Task (modelo de dados e regras de negócio)
 ├── persistency.py   # Funções de leitura/escrita em arquivo (pickle)
 ├── controller.py    # Classe Controller (gerenciamento e fluxo de dados)
-└── main.py          # Interface CLI principal (parser de argumentos com argparse e formatação com Rich)
+├── main.py          # Interface CLI principal (parser de argumentos com argparse e formatação com Rich)
+└── requirements.txt # Lista de dependências do projeto
 ```
 
 ---
@@ -44,15 +45,13 @@ O projeto adota uma arquitetura modular orientada a objetos (MVC simplificado):
 - **Python 3.7+** instalado na sua máquina.
 - **Rich:** Biblioteca externa para estilização e formatação visual do terminal.
 
-### 📦 Instalação da dependência
+### 📦 Instalação das Dependências
 
-Você pode instalar a biblioteca `rich` no seu ambiente virtual com:
+Instale todas as dependências do projeto listadas no arquivo `requirements.txt` executando:
 
 ```bash
-pip install rich
+pip install -r requirements.txt
 ```
-
-*(Ou via arquivo de dependências `pip install -r requirements.txt`, caso possua)*.
 
 ---
 
@@ -64,7 +63,18 @@ pip install rich
    cd gerenciador-de-tarefas-cli
    ```
 
-2. **Ative seu ambiente virtual (opcional, mas recomendado) e execute:**
+2. **Crie e ative seu ambiente virtual:**
+   ```bash
+   python -m venv .todolist_env
+   source .todolist_env/bin/activate.fish  # No Fish Shell
+   ```
+
+3. **Instale as dependências:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Execute o projeto:**
    ```bash
    python main.py --help
    ```
