@@ -2,8 +2,7 @@ from datetime import datetime
 
 class Task:
 
-    def __init__(self, titulo, descricao, data_vencimento, status = 'Pendente'):
-
+    def __init__(self, titulo, descricao, data_vencimento, status='Pendente'):
         self.titulo = titulo
         self.descricao = descricao
         self.data_vencimento = datetime.strptime(data_vencimento, '%d/%m/%Y')
@@ -16,6 +15,7 @@ class Task:
         )
 
     def marcar_concluida(self):
+        # Mantemos o dado puro para não poluir o banco/atributos
         self.status = 'Concluída'
 
     def esta_atrasada(self):
@@ -31,9 +31,17 @@ class Task:
         self.data_vencimento = datetime.strptime(nova_data_venc, "%d/%m/%Y")
 
     def detalhes(self):
-        status = 'Atrasada' if self.esta_atrasada() else self.status
-        return  (f'Título: {self.titulo}\n'
-                 f'Descrição: {self.descricao}\n'
-                 f'Status: {status}\n'
-                 f'Data de Vencimento: {self.data_vencimento.strftime("%d/%m/%Y")}\n'
-                 )
+        if self.esta_atrasada():
+            status_str = '[bright_red b]Atrasada[/]'
+        elif self.status == 'Concluída':
+            status_str = '[deep_sky_blue3 b]Concluída[/]'
+        else:
+            status_str = '[gold1 b]Pendente[/]'
+            
+        # Adicionamos [b]...[/] ao redor dos rótulos dos campos
+        return (
+            f'[b]Título:[/b] {self.titulo}\n'
+            f'[b]Descrição:[/b] {self.descricao}\n'
+            f'[b]Status:[/b] {status_str}\n'
+            f'[b]Data de Vencimento:[/b] [cyan]{self.data_vencimento.strftime("%d/%m/%Y")}[/]'
+        )
